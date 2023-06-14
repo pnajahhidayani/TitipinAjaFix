@@ -5,9 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Forum.AddPostActivity"
+    tools:context=".viewModel.AddPostActivity"
     tools:showIn="@layout/activity_add_post"
     android:id="@+id/coordinator">
+
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.example.titipinajamyapp.viewModel.AddPostViewModel" />-->
+<!--    </data>-->
 
     <TextView
         android:id="@+id/post_title"
@@ -17,7 +23,7 @@
         android:layout_marginTop="26dp"
         android:text="Post Title"
         android:textSize="15dp"
-        android:textColor="@color/primary"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +45,7 @@
         android:layout_marginTop="26dp"
         android:text="Post Content"
         android:textSize="15dp"
-        android:textColor="@color/primary"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_edittext" />
 

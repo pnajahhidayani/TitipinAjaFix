@@ -21,6 +21,8 @@
             android:name=".SigninActivity"
             android:exported="false" />
         <activity
+            android:name=".viewModel.AddPostActivity"/>
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
