@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".com.example.titipinajamyapp.ProfileActivity"
+    android:background="@color/purple_200">
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/password_signup"
+        android:layout_width="313dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="301dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="Password"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/fullname_signup"
+        android:layout_width="312dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="432dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="FullName"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/email_signup"
+        android:layout_width="313dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="365dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:hint="Email"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="475dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="102dp"
+        android:background="#2196F3"
+        android:text="Edit Profile" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="558dp"
+        android:gravity="center"
+        android:text="EDIT PROFILE"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+</RelativeLayout>

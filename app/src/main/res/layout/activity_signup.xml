@@ -16,9 +16,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="448dp"
         android:layout_marginEnd="106dp"
-        android:layout_marginBottom="143dp"
+        android:layout_marginBottom="83dp"
         android:src="@drawable/logofix" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -92,7 +92,7 @@
         android:layout_marginRight="150dp"
         android:layout_marginBottom="331dp"
         android:backgroundTint="@color/white"
-        android:text="Login"
+        android:text="Register"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="17dp"

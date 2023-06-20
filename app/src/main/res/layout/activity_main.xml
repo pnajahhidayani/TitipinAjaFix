@@ -12,6 +12,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Saya membuka jasa titip untuk luar negeri"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/textViewContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="barang yang kami jual dijamin aman, tax dibagi rata setelah proses beacukai"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/textViewTitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Post"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/textViewContent2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="posting"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+
+
     </FrameLayout>
 
     <com.google.android.material.appbar.AppBarLayout

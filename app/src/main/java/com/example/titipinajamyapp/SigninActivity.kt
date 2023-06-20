@@ -3,6 +3,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SigninActivity : AppCompatActivity() {
     private lateinit var emailEditText: TextInputEditText
@@ -23,6 +26,20 @@ class SigninActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signin)
+        val user = Firebase.auth.currentUser
+        user?.let {
+            for (profile in it.providerData) {
+                // Id of the provider (ex: google.com)
+                val providerId = profile.providerId.toString()
+
+
+                // Name, email address, and profile photo Url
+                val email = profile.email.toString()
+                Log.d("nama", email)
+
+            }
+        }
+
 
         emailEditText = findViewById(R.id.email_login)
         passwordEditText = findViewById(R.id.password_login)

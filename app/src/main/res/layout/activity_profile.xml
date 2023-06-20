@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".com.example.titipinajamyapp.ProfileActivity"
+    android:background="@color/purple_700">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="155dp"
+        android:layout_height="135dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/logofix" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="183dp"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="647dp"
+        android:gravity="center"
+        android:text="PROFILE"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="209dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="307dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="227dp"
+        android:gravity="left"
+        android:text="PROFILE"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="218dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="369dp"
+        android:layout_marginEnd="165dp"
+        android:layout_marginBottom="175dp"
+        android:gravity="left"
+        android:text="PROFILE"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="209dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="489dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="53dp"
+        android:background="#2196F3"
+        android:text="Edit Profile" />
+
+
+</RelativeLayout>

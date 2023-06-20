@@ -85,7 +85,7 @@ class SignupActivity : AppCompatActivity() {
                     val currentUserID = mAuth.currentUser?.uid
                     val userMap = HashMap<String, Any>()
                     userMap["uid"] = currentUserID!!
-                    userMap["fullName"] = fullName
+                    userMap["name"] = fullName
                     userMap["userName"] = userName
                     userMap["email"] = email
 

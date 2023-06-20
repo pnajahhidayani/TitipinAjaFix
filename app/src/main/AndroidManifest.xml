@@ -21,6 +21,12 @@
             android:name=".SigninActivity"
             android:exported="false" />
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".viewModel.AddPostActivity"/>
         <activity
             android:name=".SplashActivity"

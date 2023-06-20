@@ -20,9 +20,9 @@
         android:icon="@drawable/search"
         android:title=""/>
 
-<!--    <item-->
-<!--        android:id="@+id/nav_profile"-->
-<!--        android:icon="@drawable/user"-->
-<!--        android:title=""/>-->
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/user"
+        android:title=""/>
 
 </menu>

@@ -1,20 +1,36 @@
 package com.example.titipinajamyapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.example.titipinajamyapp.EditProfileActivity
+import com.example.titipinajamyapp.viewModel.AddPostActivity
+import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class HomeActivity : AppCompatActivity() {
+public class ProfileActivity  : AppCompatActivity(){
     private lateinit var recyclerView: RecyclerView
     private lateinit var postAdapter: PostAdapter
     private lateinit var db: AppDatabase
+    private lateinit var nameText: TextView
+    private lateinit var emailText: TextView
+    private lateinit var idText: TextView
+    private lateinit var button: Button
     var name="null"
     var email="null"
     var password=null
@@ -23,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_profile)
 
         val user = Firebase.auth.currentUser
         user?.let {
@@ -40,27 +56,17 @@ class HomeActivity : AppCompatActivity() {
         }
         Log.d("nama", name)
 
+        nameText = findViewById(R.id.name)
+        emailText = findViewById(R.id.email)
+        button = findViewById(R.id.button)
+        nameText.setText(name)
+        emailText.setText(email)
 
-
-        // Inisialisasi RecyclerView
-        recyclerView = findViewById(R.id.home_toolbar)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        // Inisialisasi PostAdapter
-        postAdapter = PostAdapter()
-
-        // Set adapter pada RecyclerView
-        recyclerView.adapter = postAdapter
-
-        db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "my-database")
-            .build()
-
-
-        // Ambil data posting dari database
-        lifecycleScope.launch {
-            val postings = db.postingDao().getAllPostings()
-            postAdapter.setPostings(postings)
+        button.setOnClickListener {
+            startActivity(Intent(this@ProfileActivity, EditProfileActivity::class.java))
         }
+
 
     }
 }
+

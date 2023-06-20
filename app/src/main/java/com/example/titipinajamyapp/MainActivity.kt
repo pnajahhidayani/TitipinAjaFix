@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.titipinajamyapp.viewModel.AddPostActivity
-import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -26,12 +25,17 @@ class MainActivity : AppCompatActivity() {
         when (menuItem.itemId) {
             R.id.nav_home -> {
                 val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                startActivity(intent)
                 return true
             }
             R.id.nav_add_post -> {
                 val intent = Intent(this, AddPostActivity::class.java)
-                    startActivity(intent)
+                startActivity(intent)
+                return true
+            }
+            R.id.nav_profile -> {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
                 return true
             }else ->
             return false

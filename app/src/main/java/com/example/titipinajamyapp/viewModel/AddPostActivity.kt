@@ -59,21 +59,21 @@ class AddPostActivity : AppCompatActivity() {
                     db.postingDao().insert(posting)
                 }
                 Toast.makeText(this, "Posting added successfully", Toast.LENGTH_SHORT).show()
-                }else {
-                    Toast.makeText(this, "Title and Content cannot be empty", Toast.LENGTH_SHORT)
-                        .show()
-                }
+            }else {
+                Toast.makeText(this, "Title and Content cannot be empty", Toast.LENGTH_SHORT)
+                    .show()
             }
-            val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "my-database")
-                .build()
-
-           val postingsLiveData: LiveData<List<Posting>> = db.postingDao().getAllPostings()
-           postingsLiveData.observe(this) {
-               postings ->
-           }
-
         }
+        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "my-database")
+            .build()
+
+        val postingsLiveData: LiveData<List<Posting>> = db.postingDao().getAllPostings()
+        postingsLiveData.observe(this) {
+                postings ->
+        }
+
     }
+}
 
 
 
