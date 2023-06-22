@@ -5,12 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 
 class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
-    private var postings: List<Posting> = emptyList()
+//    private var postings: List<Posting> = emptyList()
+private var postings: LiveData<List<Posting>> = MutableLiveData<List<Posting>>()
+
 
     fun setPostings(postings: LiveData<List<Posting>>) {
+        this.postings = postings
         notifyDataSetChanged()
     }
 
@@ -23,13 +27,12 @@ class PostAdapter : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
         return ViewHolder(itemView)
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val posting = postings[position]
-        holder.textViewTitle.text = posting.title
-        holder.textViewContent.text = posting.content
+        val posting = postings.value?.get(position)
+        holder.textViewTitle.text = posting?.title
+        holder.textViewContent.text = posting?.content
     }
-
     override fun getItemCount(): Int {
-        return postings.size
+        return postings.value?.size ?: 0
     }
 
 }

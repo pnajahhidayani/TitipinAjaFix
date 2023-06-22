@@ -3,10 +3,14 @@ package com.example.titipinajamyapp
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.example.titipinajamyapp.com.example.titipinajamyapp.viewModel.AddPostActivityFactory
+import com.example.titipinajamyapp.viewModel.AddPostActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
@@ -20,6 +24,12 @@ class HomeActivity : AppCompatActivity() {
     var password=null
     var providerId ="null"
     var username=null
+
+    private val viewModel: AddPostActivity by lazy {
+        val db = PostingDao.getInstance(requireContext())
+        val factory = AddPostActivityFactory(db.dao)
+        ViewModelProvider(this, factory) [AddPostActivity::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +68,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Ambil data posting dari database
         lifecycleScope.launch {
-            val postings = db.postingDao().getAllPostings()
+            val postings = db.().getAllPostings()
             postAdapter.setPostings(postings)
         }
 

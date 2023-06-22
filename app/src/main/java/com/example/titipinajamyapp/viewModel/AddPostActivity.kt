@@ -1,77 +1,72 @@
 package com.example.titipinajamyapp.viewModel
 
-import android.content.ContentValues.TAG
-import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
 import androidx.room.Room
-import com.example.titipinajamyapp.AppDatabase
-import com.example.titipinajamyapp.MainActivity
-import com.example.titipinajamyapp.Posting
-import com.example.titipinajamyapp.R
+import com.example.titipinajamyapp.*
 //import com.example.titipinajamyapp.databinding.ActivityAddPostBinding
-import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 //import com.google.firebase.firestore.FirebaseFirestore
 //import kotlinx.android.synthetic.main.activity_add_post.*
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.HashMap
 
 
-class AddPostActivity : AppCompatActivity() {
+class AddPostActivity(db: PostingDao) : AppCompatActivity() {
+    val data = this.db.getAllPostings()
 
-    private lateinit var editTextTitle: EditText
-    private lateinit var editTextContent: EditText
-    private lateinit var buttonAddPosting: Button
+//    private lateinit var editTextTitle: EditText
+//    private lateinit var editTextContent: EditText
+//    private lateinit var buttonAddPosting: Button
 
     private lateinit var db: AppDatabase
 
-//    private lateinit var binding: ActivityAddPostBinding
-//    private lateinit var progressBar: ProgressBar
-//    private  lateinit var  messageTextView: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        binding = ActivityAddPostBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_add_post)
 
 
-        editTextTitle = findViewById(R.id.title_edittext)
-        editTextContent = findViewById(R.id.edittext_postcontent)
-        buttonAddPosting = findViewById(R.id.button_post)
+//        editTextTitle = findViewById(R.id.title_edittext)
+//        editTextContent = findViewById(R.id.edittext_postcontent)
+//        buttonAddPosting = findViewById(R.id.button_post)
+
+        val buttonAddPosting: Button = findViewById(R.id.button_post)
+        val editTextTitle: EditText = findViewById(R.id.title_edittext)
+        val editTextContent: EditText = findViewById(R.id.edittext_postcontent)
+
+        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "my-database")
+            .build()
 
         buttonAddPosting.setOnClickListener {
             val title = editTextTitle.text.toString()
             val content = editTextContent.text.toString()
 
-            if (title.isNotEmpty() && content.isNotEmpty()) {
-                val posting = Posting(title = title, content = content)
-                GlobalScope.launch(Dispatchers.IO) {
-                    db.postingDao().insert(posting)
+                if (title.isNotEmpty() && content.isNotEmpty()) {
+
+                    GlobalScope.launch {
+                        (Dispatchers.IO)
+                        val posting = Posting(
+                            title = title,
+                            content = content)
+//                        val postingDao: PostingDao = db.insert(posting: Posting)
+//                        PostingDao.insert(posting)
+                        db.insert(posting)
+                    }
+                    Toast.makeText(this, "Posting added successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Title and Content cannot be empty", Toast.LENGTH_SHORT)
+                        .show()
                 }
-                Toast.makeText(this, "Posting added successfully", Toast.LENGTH_SHORT).show()
-            }else {
-                Toast.makeText(this, "Title and Content cannot be empty", Toast.LENGTH_SHORT)
-                    .show()
             }
-        }
-        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "my-database")
-            .build()
 
-        val postingsLiveData: LiveData<List<Posting>> = db.postingDao().getAllPostings()
-        postingsLiveData.observe(this) {
-                postings ->
-        }
 
+//        val postingsLiveData: LiveData<List<Posting>> = db.postingDao().getAllPostings()
+//        postingsLiveData.observe(this) { postings ->
+//            for (posting in postings) {
+//                Log.d("Posting Title", posting.title)
+//            }
+//        }
     }
 }
 

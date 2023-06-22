@@ -8,9 +8,9 @@ import androidx.room.Query
 @Dao
 interface PostingDao {
     @Insert
-    suspend fun insert(posting: Posting)
+    suspend fun insert(posting: Posting): Long
 
     @Query("SELECT * FROM postings")
-    fun getAllPostings(): LiveData<List<Posting>>
-//    suspend fun getAllPostings(): List<Posting>
+    fun getAllPostings(): LiveData<Posting>
+//    suspend fun getAllPostings(): <List<Posting>>
 }
